@@ -1,1 +1,532 @@
-Hello World
+<html>
+    <head>
+    <style type="text/css">
+    html {
+	background-color:#333;
+}
+
+body {
+	max-width:80%;
+	margin:0 auto;
+	float:none;
+}
+
+h1 {
+	text-align:center;
+	font-family:Montserrat,sans-serif;
+	color:#EEE;
+	margin-top:150px;
+	margin-bottom:50px
+}
+
+#photos {
+/* Prevent vertical gaps */
+	line-height:0;
+	-webkit-column-gap:10px;
+	-webkit-column-width:300px;
+	-moz-column-width:300px;
+	-moz-column-gap:10px;
+	column-gap:10px;
+	column-width:300px;
+}
+
+#photos img {
+/* Just in case there are inline attributes */
+	width:100%;
+	height:auto;
+  margin-top:10px;
+}
+
+.rendercontainer {
+	display:block;
+	margin-top:150px;
+	text-align:center;
+}
+
+.image {
+	position:relative;
+	width:/* for IE 6 */
+100%
+}
+
+h2 {
+	position:absolute;
+	bottom:.1%;
+	text-align:center;
+	width:100%
+}
+
+h2 span {
+	color:#fff;
+	font-size:medium;
+	font-style: normal;
+	font-family:Montserrat,sans-serif;
+	letter-spacing:-1px;
+	text-align:center;
+	background:#000;
+/* fallback color */
+	background:rgba(0,0,0,0.5);
+	padding:10px;
+	width:100%
+}
+p{
+	color:#eee;
+	text-align:center;
+	margin-top:25px;
+	margin-bottom:75px
+}
+.buttoncl {
+	color:#fff;
+	border-radius:4px;
+	text-shadow:0 1px 1px rgba(0,0,0,0.2);
+	background:#ca3c3c;
+	margin-top:50px
+}
+.myradio{
+  text-align : left;
+  margin-left:40%;
+}
+.myradio input[type=radio   ]:not(old){
+  width     : 2em;
+  margin    : 0;
+  padding   : 0;
+  font-size : 1em;
+  opacity   : 0;
+}
+.myradio input[type=radio   ]:not(old) + label{
+  display      : inline-block;
+  margin-left  : -2em;
+  line-height  : 1.5em;
+}
+
+.myradio input[type=radio   ]:not(old) + label > span{
+  display          : inline-block;
+  width            : 0.875em;
+  height           : 0.875em;
+  margin           : 0.25em 0.5em 0.25em 0.25em;
+  border           : 0.0625em solid #222222;
+  border-radius    : 0.25em;
+  background       : #111111;
+  background-image :    -moz-linear-gradient(#222222,#111111);
+  background-image :     -ms-linear-gradient(#222222,#111111);
+  background-image :      -o-linear-gradient(#222222,#111111);
+  background-image : -webkit-linear-gradient(#222222,#111111);
+  background-image :         linear-gradient(#222222,#111111);
+  vertical-align   : bottom;
+}
+.myradio input[type=radio   ]:not(old):checked + label > span{
+  background-image :    -moz-linear-gradient(#111111,#222222);
+  background-image :     -ms-linear-gradient(#111111,#222222);
+  background-image :      -o-linear-gradient(#111111,#222222);
+  background-image : -webkit-linear-gradient(#111111,#222222);
+  background-image :         linear-gradient(#111111,#222222);
+}
+.myradio input[type=radio]:not(old):checked +  label > span > span{
+  display          : block;
+  width            : 0.5em;
+  height           : 0.5em;
+  margin           : 0.125em;
+  border           : 0.0625em solid rgb(115,153,77);
+  border-radius    : 0.125em;
+  background       : #E59420;
+  background-image :    -moz-linear-gradient(#E59420,#E59420);
+  background-image :     -ms-linear-gradient(#E59420,#E59420);
+  background-image :      -o-linear-gradient(#E59420,#E59420);
+  background-image : -webkit-linear-gradient(#E59420,#E59420);
+  background-image :         linear-gradient(#E59420,#E59420);
+}
+.play_border {
+  margin:5px;
+  border: 2px solid rgba(0,0,0,0.7);
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  -webkit-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.5);
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  display: inline-block;
+}
+.play_border:hover{
+  border-color: transparent;
+  -webkit-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+}
+.play_border:hover .play_button{
+  border-left: 20px solid rgba(0,0,0,0.5);
+}
+.play_border:active,.play_border:focus{
+  -webkit-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 5.play_button:hoverpx 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+}
+.play_button {
+  position:relative;
+  top: 10px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 20px solid rgba(0,0,0,0.8);
+}
+
+.circle{
+  margin-left:0%;
+  margin-top:25%;
+  border-radius:50%;
+  width:50%;
+  height:50%;
+  display:block;
+  background-color: rgba(0,0,0,0.8);
+  border:0;
+}
+
+
+    </style>
+</head>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+<body  onkeydown="keyDown(event);" >
+	<div id="joy">
+		<h1>Scene Relighting for Everyone</h1>
+		<br>
+		<p>This site serves as a web based gallery for the relightable photographs acquired using our mobile setup. Click on an object to start relighting it.</p>
+
+		<section id="photos">
+			<div class="image">
+				<img id="toys" src="res/toys.png">
+
+				<h2><span>Toys</span></h2>
+			</div>
+
+			<div class="image">
+				<img id="nd1" src="res/nd1.png">
+
+				<h2><span>Notre dame</span></h2>
+			</div>
+
+			<div class="image">
+				<img id="nd2" src="res/nd2.png">
+
+				<h2><span>Notre dame specularities</span></h2>
+			</div>
+
+			<div class="image">
+				<img id="iconograph" src="res/iconograph.png">
+
+				<h2><span>Iconograph</span></h2>
+			</div>
+
+			<div class="image">
+				<img id="hohmann" src="res/hohmann.png">
+
+				<h2><span>Hohmann</span></h2>
+			</div>
+
+      <div class="image">
+				<img id="p1" src="res/p1.png">
+				<h2><span>Van Gogh</span></h2>
+			</div>
+
+      <div class="image">
+        <img id="p2" src="res/p2.png">
+        <h2><span>Specular Dude</span></h2>
+      </div>
+		</section>
+	</div>
+
+	<div id="renderpage" style="display:none">
+		<div class="rendercontainer">
+      <center>
+    		<img name="myImage" src="https://raw.githubusercontent.com/terrinoculon/toys/master/frame1275.jpg" width="60%"/>
+    		<br>
+    		<br>
+    		<canvas height="250" id="imgCanvas" width="250"></canvas>
+    		<br>
+    		<div class="myradio">
+    			<div>
+    				<input id="mode1" type="radio" name="mode" value="1" checked="checked" onclick="modeChange()">
+    				<label for="mode1"><span><span></span></span>Preloading Disabled</label>
+    			</div>
+    			<div>
+    				<input id="mode2" type="radio" name="mode" value="2" onclick="modeChange()">
+    				<label for="mode2"><span><span></span></span>Preloading along Trajectories</label>
+    			</div>
+    			<div>
+    				<input id="mode3" type="radio" name="mode" value="3" onclick="modeChange()">
+    				<label for="mode3"><span><span></span></span>Lazy Preloading</label>
+    			</div>
+    		</div>
+    		<br>
+    		<progress  id="progBar" value="0" max ="100" ></progress>
+    		<br>
+    		<div id="playButtons" >
+    			<div class="play_border" onclick="recordClicked()">
+    				<div class="circle"></div>
+    			</div>
+    			<div class="play_border" onclick="playClicked()">
+    				<div class="play_button"></div>
+    			</div>
+
+    		</div>
+    	</center>
+
+			<button class="buttoncl" id="ret">Back</button>
+		</div>
+	</div>
+
+  <script language="JavaScript" type="text/javascript">
+
+  var list=[];mode=1;
+  document.getElementById("progBar").style.display='none';
+  document.getElementById("playButtons").style.display='none';
+
+
+var canvas = document.getElementById("imgCanvas");
+var posX;var posY;var currentFrame;
+var context = canvas.getContext('2d');
+
+document.getElementById("ret").onclick = function() {
+	document.getElementById("renderpage").style.display = "none";
+	document.getElementById("joy").style.display = "";
+};
+
+function setWorkspace( name,cwidth,cheight){
+  document.getElementById("joy").style.display = "none";
+	document.getElementById("renderpage").style.display = "";
+	canvas.width=cwidth;
+  canvas.height=cheight;
+  mc=cwidth/5;
+  mr=cheight/5;
+  context.fillStyle = "#666666";
+  context.fillRect(0, 0, canvas.width, canvas.height);
+  canvas.addEventListener('mousemove',getMousePos, false);
+  context.beginPath(); context.fillStyle = "#E59420";
+  context.arc(Math.floor(mc/2)*5, Math.floor(mr/2)*5, 10, 0, Math.PI * 2, true);
+  context.closePath();context.fill();
+  currentFrame=Math.floor((mr*Math.floor(mc/2)+Math.floor(mr/2))/3);
+  document.myImage.src=base.concat(currentFrame.toString(),".jpg");
+};
+//TOYS
+document.getElementById("toys").onclick = function(){
+  var ch=250;
+  var cw=250;
+  base="https://raw.githubusercontent.com/terrinoculon/toys/master/frame";
+  setWorkspace(base,cw,ch);
+};
+
+//ND1
+document.getElementById("nd1").onclick = function() {
+  base="https://raw.githubusercontent.com/terrinoculon/nd1/master/frames";
+  var ch=160;
+  var cw=400;
+  setWorkspace(base,cw,ch);
+};
+
+//ND2
+document.getElementById("nd2").onclick = function() {
+  base="https://raw.githubusercontent.com/terrinoculon/nd2/master/frames";
+  var ch=160;
+  var cw=400;
+  setWorkspace(base,cw,ch);
+};
+//ICON
+document.getElementById("iconograph").onclick = function() {
+  base="https://raw.githubusercontent.com/terrinoculon/icon/master/frames";
+  var ch=185;
+  var cw=295;
+  setWorkspace(base,cw,ch);
+};
+
+//HOHMANN
+document.getElementById("hohmann").onclick = function() {
+  base="https://raw.githubusercontent.com/terrinoculon/hohmann/master/frames";
+  var ch=285;
+  var cw=375;
+  setWorkspace(base,cw,ch);
+};
+
+//P1
+document.getElementById("p1").onclick = function() {
+  base="https://raw.githubusercontent.com/terrinoculon/p1/master/frames";
+  var ch=245;
+  var cw=375;
+  setWorkspace(base,cw,ch);
+};
+
+//P2
+document.getElementById("p2").onclick = function() {
+  base="https://raw.githubusercontent.com/terrinoculon/p2/master/frames";
+  var ch=325;
+  var cw=375;
+  setWorkspace(base,cw,ch);
+};
+
+
+function getMousePos( evt) {
+  var rect = canvas.getBoundingClientRect();
+  posX= (evt.clientX-rect.left)/(rect.right-rect.left)*canvas.width;
+  posY= (evt.clientY-rect.top)/(rect.bottom-rect.top)*canvas.height;
+  posx = Math.ceil((posX+1)/5);
+  posy = Math.ceil((posY+1)/5);
+  drawCanvas();
+}
+
+function drawCanvas(){
+  if (mode==1)
+  {
+    draw();
+  }
+  else if (mode==2) {
+    drawWithTrajectory();
+  }
+  else if (mode==3) {
+    draw();
+  }
+}
+
+function draw(){
+  context.fillStyle = "#666666";
+  context.fillRect(0, 0, canvas.width, canvas.height);
+  context.beginPath();
+  context.fillStyle = "#E59420";
+  context.arc(posX, posY, 10, 0, Math.PI * 2, true);
+  context.closePath();context.fill();
+  currentFrame= (posy + mr * (posx - 1)) ;
+  document.myImage.src=base.concat(currentFrame.toString(),".jpg");console.log(currentFrame);
+}
+
+function drawWithTrajectory(){
+  if (record==false && play==false)
+  {
+    draw();
+  }
+  if (record==true)
+  {
+    recordTrajectory();
+  }
+}
+
+function recordTrajectory(){
+  context.beginPath();
+  context.fillStyle = "#E59420";
+  context.arc(posX, posY, 10, 0, Math.PI * 2, true);
+  context.closePath();context.fill();
+  currentFrame= (posy + mr * (posx - 1)) ;
+  traj.push(currentFrame);
+  pX.push(posX);
+  pY.push(posY);
+}
+
+function loadTrajectory(){
+  document.getElementById("playButtons").style.display='none';
+  document.getElementById("progBar").style.display='block';
+  for (var i=0;i<traj.length;i++)
+  {
+    var tmp=traj[i];
+    var img= new Image();
+    img.src=base.concat(tmp.toString(),".jpg");
+    document.getElementById("progBar").value = (i+1)/traj.length*100;
+  }
+
+}
+
+function modeChange(){
+  if (document.getElementById('mode1').checked) {
+    mode = document.getElementById('mode1').value;
+    document.getElementById("progBar").style.display='none';
+  }
+
+  if (document.getElementById('mode2').checked) {
+    mode = document.getElementById('mode2').value;
+    document.getElementById("progBar").style.display='none';
+    document.getElementById("playButtons").style.display='block';
+    record=false;
+    play=false;
+  }
+  if (document.getElementById('mode3').checked) {
+    mode = document.getElementById('mode3').value;
+    document.getElementById("progBar").style.display='block';
+    if (window.Worker) {
+      var myWorker = new Worker("js/worker.js");
+      console.log('Created Worker');
+      myWorker.onmessage = function(e) {
+        document.getElementById("progBar").value = e.data;
+        console.log('Message received from worker');
+      };}
+      else{
+        document.getElementById("result").innerHTML = 'Failed';
+        console.log('No Workers');
+      }
+
+    }
+  }
+
+  function keyDown(e) {
+       if (e.keyCode == 13 && mode==2) {
+            record=true;
+            traj=[];
+            pX=[];
+            pY=[];context.fillStyle = "#666666";
+            context.fillRect(0, 0, canvas.width, canvas.height);
+       }if (e.keyCode == 32 && mode==2) {
+            record=false;
+            loadTrajectory();
+            document.getElementById("playButtons").style.display='block';
+            document.getElementById("progBar").style.display='none';
+
+       }
+  }
+
+  function playClicked(){
+    context.fillStyle = "#666666";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    var i=0;
+    setInterval(
+      function(){
+        if (i<traj.length)
+        {
+          currentFrame=traj[i];
+          posX=pX[i];
+          posY=pY[i];
+          playDraw();
+          i++;
+        }
+        else {
+          clearInterval();
+        }
+      },50);
+  }
+
+  function recordClicked(){
+    record=true;
+    traj=[];
+    pX=[];
+    pY=[];context.fillStyle = "#666666";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+  }
+
+  function playDraw(){
+    context.beginPath();
+    context.fillStyle = "#E59420";
+    context.arc(posX, posY, 10, 0, Math.PI * 2, true);
+    context.closePath();context.fill();
+    document.myImage.src=base.concat(currentFrame.toString(),".jpg");console.log(currentFrame);
+  }
+
+
+	</script>
+</body>
+</html>
