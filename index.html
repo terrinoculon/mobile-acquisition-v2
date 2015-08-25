@@ -82,9 +82,7 @@ p{
 	border-radius:4px;
 	text-shadow:0 1px 1px rgba(0,0,0,0.2);
 	background:#ca3c3c;
-	margin-top:50px;
-
-}
+	}
 .myradio{
   text-align : left;
   margin-left:40%;
@@ -301,8 +299,6 @@ p{
     		</div>
 
       <p id="mTips" ></p>
-
-    	<br>
 <button class="buttoncl" id="ret">Back</button>
       </center>
 
@@ -325,6 +321,10 @@ var context = canvas.getContext('2d');
 document.getElementById("ret").onclick = function() {
 	document.getElementById("renderpage").style.display = "none";
 	document.getElementById("joy").style.display = "";
+  document.getElementById('mode1').checked=true;
+  document.getElementById('mode2').checked=false;
+  document.getElementById('mode3').checked=false;
+  modeChange();
 };
 
 function setWorkspace( name,cwidth,cheight){
