@@ -2,18 +2,20 @@
     <head>
     <style type="text/css">
     html {
-	background-color:#333;
+	background-color:#444;
 }
 
 body {
 	max-width:80%;
 	margin:0 auto;
 	float:none;
+  font-family: Arial, Helvetica, sans-serif;
+  color:#eee;
 }
 
 h1 {
 	text-align:center;
-	font-family:Montserrat,sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	color:#EEE;
 	margin-top:150px;
 	margin-bottom:50px
@@ -57,7 +59,7 @@ h2 {
 }
 
 h2 span {
-	color:#fff;
+	color:#eee;
 	font-size:medium;
 	font-style: normal;
 	font-family:Montserrat,sans-serif;
@@ -80,7 +82,8 @@ p{
 	border-radius:4px;
 	text-shadow:0 1px 1px rgba(0,0,0,0.2);
 	background:#ca3c3c;
-	margin-top:50px
+	margin-top:50px;
+
 }
 .myradio{
   text-align : left;
@@ -128,12 +131,12 @@ p{
   margin           : 0.125em;
   border           : 0.0625em solid rgb(115,153,77);
   border-radius    : 0.125em;
-  background       : #E59420;
-  background-image :    -moz-linear-gradient(#E59420,#E59420);
-  background-image :     -ms-linear-gradient(#E59420,#E59420);
-  background-image :      -o-linear-gradient(#E59420,#E59420);
-  background-image : -webkit-linear-gradient(#E59420,#E59420);
-  background-image :         linear-gradient(#E59420,#E59420);
+  background       : #71A1F7;
+  background-image :    -moz-linear-gradient(#71A1F7,#71A1F7);
+  background-image :     -ms-linear-gradient(#71A1F7,#71A1F7);
+  background-image :      -o-linear-gradient(#71A1F7,#71A1F7);
+  background-image : -webkit-linear-gradient(#71A1F7,#71A1F7);
+  background-image :         linear-gradient(#71A1F7,#71A1F7);
 }
 .play_border {
   margin:5px;
@@ -188,7 +191,19 @@ p{
   background-color: rgba(0,0,0,0.8);
   border:0;
 }
-
+.left-div{
+  width:75%;
+}
+.right-div{
+  float: right;
+  margin-left: 80%;
+}
+#mTips{
+  border-radius: 25px;
+  border: 2px solid #8AC0C0;
+  padding: 10px;
+  background-color: #222;
+ }
 
     </style>
 </head>
@@ -249,12 +264,15 @@ p{
 
 	<div id="renderpage" style="display:none">
 		<div class="rendercontainer">
+
       <center>
     		<img name="myImage" src="https://raw.githubusercontent.com/terrinoculon/toys/master/frame1275.jpg" height="50%"/>
     		<br>
-    		<br>
+
+        <br>
     		<canvas height="250" id="imgCanvas" width="250"></canvas>
     		<br>
+
     		<div class="myradio">
     			<div>
     				<input id="mode1" type="radio" name="mode" value="1" checked="checked" onclick="modeChange()">
@@ -281,9 +299,15 @@ p{
     			</div>
 
     		</div>
-    	</center>
 
-			<button class="buttoncl" id="ret">Back</button>
+      <p id="mTips" ></p>
+
+    	<br>
+<button class="buttoncl" id="ret">Back</button>
+      </center>
+
+
+
 		</div>
 	</div>
 
@@ -310,14 +334,15 @@ function setWorkspace( name,cwidth,cheight){
   canvas.height=cheight;
   mc=cwidth/5;
   mr=cheight/5;
-  context.fillStyle = "#666666";
+  context.fillStyle = "#BFBFBF";
   context.fillRect(0, 0, canvas.width, canvas.height);
   canvas.addEventListener('mousemove',getMousePos, false);
-  context.beginPath(); context.fillStyle = "#E59420";
+  context.beginPath(); context.fillStyle = "#71A1F7";
   context.arc(Math.floor(mc/2)*5, Math.floor(mr/2)*5, 10, 0, Math.PI * 2, true);
   context.closePath();context.fill();
   currentFrame=Math.floor((mr*Math.floor(mc/2)+Math.floor(mr/2))/3);
   document.myImage.src=base.concat(currentFrame.toString(),".jpg");
+  document.getElementById("mTips").innerText=" In this mode, you can move the light to discrete points on the canvas. The scene will be relit once the cursor stops. ";
 };
 //TOYS
 document.getElementById("toys").onclick = function(){
@@ -398,10 +423,10 @@ function drawCanvas(){
 }
 
 function draw(){
-  context.fillStyle = "#666666";
+  context.fillStyle = "#BFBFBF";
   context.fillRect(0, 0, canvas.width, canvas.height);
   context.beginPath();
-  context.fillStyle = "#E59420";
+  context.fillStyle = "#71A1F7";
   context.arc(posX, posY, 10, 0, Math.PI * 2, true);
   context.closePath();context.fill();
   currentFrame= (posy + mr * (posx - 1)) ;
@@ -421,7 +446,7 @@ function drawWithTrajectory(){
 
 function recordTrajectory(){
   context.beginPath();
-  context.fillStyle = "#E59420";
+  context.fillStyle = "#71A1F7";
   context.arc(posX, posY, 10, 0, Math.PI * 2, true);
   context.closePath();context.fill();
   currentFrame= (posy + mr * (posx - 1)) ;
@@ -443,43 +468,12 @@ function loadTrajectory(){
 
 }
 
-function modeChange(){
-  if (document.getElementById('mode1').checked) {
-    mode = document.getElementById('mode1').value;
-    document.getElementById("progBar").style.display='none';
-  }
-
-  if (document.getElementById('mode2').checked) {
-    mode = document.getElementById('mode2').value;
-    document.getElementById("progBar").style.display='none';
-    document.getElementById("playButtons").style.display='block';
-    record=false;
-    play=false;
-  }
-  if (document.getElementById('mode3').checked) {
-    mode = document.getElementById('mode3').value;
-    document.getElementById("progBar").style.display='block';
-    if (window.Worker) {
-      var myWorker = new Worker("js/worker.js");
-      console.log('Created Worker');
-      myWorker.onmessage = function(e) {
-        document.getElementById("progBar").value = e.data;
-        console.log('Message received from worker');
-      };}
-      else{
-        document.getElementById("result").innerHTML = 'Failed';
-        console.log('No Workers');
-      }
-
-    }
-  }
-
   function keyDown(e) {
        if (e.keyCode == 13 && mode==2) {
             record=true;
             traj=[];
             pX=[];
-            pY=[];context.fillStyle = "#666666";
+            pY=[];context.fillStyle = "#BFBFBF";
             context.fillRect(0, 0, canvas.width, canvas.height);
        }if (e.keyCode == 32 && mode==2) {
             record=false;
@@ -491,7 +485,7 @@ function modeChange(){
   }
 
   function playClicked(){
-    context.fillStyle = "#666666";
+    context.fillStyle = "#BFBFBF";
     context.fillRect(0, 0, canvas.width, canvas.height);
     var i=0;
     setInterval(
@@ -514,18 +508,53 @@ function modeChange(){
     record=true;
     traj=[];
     pX=[];
-    pY=[];context.fillStyle = "#666666";
+    pY=[];context.fillStyle = "#BFBFBF";
     context.fillRect(0, 0, canvas.width, canvas.height);
   }
 
   function playDraw(){
     context.beginPath();
-    context.fillStyle = "#E59420";
+    context.fillStyle = "#71A1F7";
     context.arc(posX, posY, 10, 0, Math.PI * 2, true);
     context.closePath();context.fill();
     document.myImage.src=base.concat(currentFrame.toString(),".jpg");console.log(currentFrame);
   }
 
+
+  function modeChange(){
+    if (document.getElementById('mode1').checked) {
+      mode = document.getElementById('mode1').value;
+      document.getElementById("progBar").style.display='none';
+      document.getElementById("playButtons").style.display='none';
+      document.getElementById("mTips").innerText=" In this mode, you can move the light to discrete points on the canvas. The scene will be relit once the cursor stops. ";
+    }
+    if (document.getElementById('mode2').checked) {
+      mode = document.getElementById('mode2').value;
+      document.getElementById("progBar").style.display='none';
+      document.getElementById("playButtons").style.display='block';
+      record=false;
+      play=false;
+      document.getElementById("mTips").innerText=" In this mode, you can draw a trajectory on the canvas with the cursor. The scene will be animated with a light source moving along the trajectory. To start recording the trajectory, press the 'Enter' key or the 'record' button above. After drawing a trajectory, to stop recording the trajectory, press the 'Space Bar'. You can play the anmation by the clicking the 'play' button above. Draw a new trajectory by pressing the 'Enter' key again, and repeating as above.";
+    }
+    if (document.getElementById('mode3').checked) {
+      mode = document.getElementById('mode3').value;
+      document.getElementById("progBar").style.display='block';
+      document.getElementById("playButtons").style.display='none';
+      document.getElementById("mTips").innerText=" In this mode, we first cache the entire dataset in your browser. The progress bar above indicates the percentage of data cached. Once cached you can move the cursor along any trajectory and relighting will happen in real time. Thus, this method has the best user experience ideally. However, implicit restrictions on the cache size by browsers would mean this method fails if we run out of cache space.";
+      if (window.Worker) {
+        var myWorker = new Worker("js/worker.js");
+        console.log('Created Worker');
+        myWorker.onmessage = function(e) {
+          document.getElementById("progBar").value = e.data;
+          console.log('Message received from worker');
+        };}
+        else{
+          document.getElementById("mTips").innerText=" This mode is unavailable. Workers disabled.";
+          console.log('No Workers');
+        }
+
+      }
+    }
 
 	</script>
 </body>
