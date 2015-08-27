@@ -544,7 +544,7 @@ function loadTrajectory(){
       if (window.Worker) {
         var myWorker = new Worker("js/lazyload.js");
         console.log('Created Worker');
-        myWorker.postMessage(base);
+        myWorker.postMessage([base,mr*mc]);
         myWorker.onmessage = function(e) {
           document.getElementById("progBar").value = e.data;
           console.log('Message received from worker');
