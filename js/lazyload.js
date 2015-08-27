@@ -1,5 +1,5 @@
-function e() {
-var base="https://raw.githubusercontent.com/terrinoculon/toys/master/frame";
+onmessage = function (e) {
+var base=e.data;
   for (var i = 1; i < 2501; i++) {
     var url = base.concat(i.toString(),".jpg");
     var xhr = new XMLHttpRequest();
@@ -15,4 +15,3 @@ var base="https://raw.githubusercontent.com/terrinoculon/toys/master/frame";
        postMessage(ii);
     }
 }
-e();
