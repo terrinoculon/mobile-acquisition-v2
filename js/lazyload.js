@@ -14,4 +14,8 @@ var base=e.data[0];
        console.log('Posting message back to main script');
        postMessage(ii);
     }
+    if (i==e.data[1])
+    {
+      self.close();
+    }
 }

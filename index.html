@@ -522,6 +522,9 @@ function loadTrajectory(){
 
 
   function modeChange(){
+    if (typeof myWorker !== 'undefined') {
+        myWorker.terminate();
+    }
     if (document.getElementById('mode1').checked) {
       mode = document.getElementById('mode1').value;
       document.getElementById("progBar").style.display='none';
