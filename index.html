@@ -546,7 +546,7 @@ function loadTrajectory(){
       document.getElementById("playButtons").style.display='none';
       document.getElementById("mTips").innerText=" In this mode, we first cache the entire dataset in your browser. The progress bar above indicates the percentage of data cached. Once cached you can move the cursor along any trajectory and relighting will happen in real time. Thus, this method has the best user experience ideally. However, implicit restrictions on the cache size by browsers would mean this method fails if we run out of cache space.";
       if (window.Worker) {
-        var myWorker = new Worker("js/lazyload.js");
+        myWorker = new Worker("js/lazyload.js");
         console.log('Created Worker');
         myWorker.postMessage([base,mr*mc]);
         myWorker.onmessage = function(e) {
