@@ -1,87 +1,94 @@
 <html>
-    <head>
-    <style type="text/css">
-    html {
-	background-color:#444;
+<head>
+<style type="text/css">
+html {
+  background-color:#444;
 }
 
 body {
-	max-width:80%;
-	margin:0 auto;
-	float:none;
+  max-width:80%;
+  margin:0 auto;
+  float:none;
   font-family: Arial, Helvetica, sans-serif;
   color:#eee;
 }
 
 h1 {
-	text-align:center;
-	font-family: Arial, Helvetica, sans-serif;
-	color:#EEE;
-	margin-top:150px;
-	margin-bottom:50px
+  text-align:center;
+  font-family: Arial, Helvetica, sans-serif;
+  color:#EEE;
+  margin-top:150px;
+  margin-bottom:5px
 }
 
 #photos {
-/* Prevent vertical gaps */
-	line-height:0;
-	-webkit-column-gap:10px;
-	-webkit-column-width:300px;
-	-moz-column-width:300px;
-	-moz-column-gap:10px;
-	column-gap:10px;
-	column-width:300px;
+  /* Prevent vertical gaps */
+  line-height:0;
+  -webkit-column-gap:10px;
+  -webkit-column-width:300px;
+  -moz-column-width:300px;
+  -moz-column-gap:10px;
+  column-gap:10px;
+  column-width:300px;
 }
 
 #photos img {
-/* Just in case there are inline attributes */
-	width:100%;
-	height:auto;
+  /* Just in case there are inline attributes */
+  width:100%;
+  height:auto;
   margin-top:10px;
 }
 
 .rendercontainer {
-	display:block;
-	margin-top:150px;
-	text-align:center;
+  display:block;
+  margin-top:150px;
+  text-align:center;
 }
 
 .image {
-	position:relative;
-	width:/* for IE 6 */
-100%
+  position:relative;
+  width:/* for IE 6 */
+  100%
 }
 
 h2 {
-	position:absolute;
-	bottom:.1%;
-	text-align:center;
-	width:100%
+  position:absolute;
+  bottom:.1%;
+  text-align:center;
+  width:100%
 }
 h2 span {
-	color:#eee;
-	font-size:medium;
-	font-style: normal;
-	font-family:Montserrat,sans-serif;
-	letter-spacing:-1px;
-	text-align:center;
-	background:#000;
-/* fallback color */
-	background:rgba(0,0,0,0.5);
-	padding:10px;
-	width:100%
+  color:#eee;
+  font-size:medium;
+  font-style: normal;
+  font-family:Montserrat,sans-serif;
+  letter-spacing:-1px;
+  text-align:center;
+  background:#000;
+  /* fallback color */
+  background:rgba(0,0,0,0.5);
+  padding:10px;
+  width:100%
 }
+h3 {
+  text-align: center;
+}
+a { color: inherit; }
 p{
-	color:#eee;
-	text-align:center;
-	margin-top:25px;
-	margin-bottom:75px
+  color:#eee;
+  text-align:center;
+  text-align: justify;
+  text-justify: inter-word;
+}
+.bold {
+  font-weight:bold;
 }
 .buttoncl {
-	color:#fff;
-	border-radius:4px;
-	text-shadow:0 1px 1px rgba(0,0,0,0.2);
-	background:#ca3c3c;
-	}
+  color:#fff;
+  border-radius:4px;
+  text-shadow:0 1px 1px rgba(0,0,0,0.2);
+  background:#ca3c3c;
+}
 .myradio{
   text-align : left;
   margin-left:40%;
@@ -200,111 +207,115 @@ p{
   border: 2px solid #8AC0C0;
   padding: 10px;
   background-color: #222;
- }
+}
 
-    </style>
+</style>
 </head>
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+  <title></title>
 </head>
 
 <body  onkeydown="keyDown(event);" >
-	<div id="joy">
-		<h1>Scene Relighting for Everyone</h1>
-		<br>
-		<p>This site serves as a web based gallery for the relightable photographs acquired using our mobile setup. Click on an object to start relighting it.</p>
+  <div id="joy">
+    <h1>Handheld Reflectance Acquisition of Paintings</h1>
+    <h3>Niranjan Thanikachalam &nbsp; Loïc Baboulaz &nbsp; Damien Firmenich &nbsp; Sabine Süsstrunk &nbsp; Martin Vetterli</h3>
+    <h3>Transactions on Computational Imaging, 2017</h3>
+    <p> <b>Abstract :</b>  Relightable photographs are alternatives to traditional photographs as they provide a richer viewing experience. However, the complex acquisition systems of existing techniques have restricted its usage to specialized setups. We introduce an easy-to-use and affordable solution for using smartphones to acquire the reflectance of paintings and similar almost-planar objects like tablets, engravings and textile. Our goal is to enable interactive relighting of such artifacts by everyone. In our approach, we non-uniformly sample the reflectance functions by moving the LED light of a smartphone and simultaneously tracking the position of the smartphone by using its camera. We then propose a compressive-sensing based approach for reconstructing the light transport matrix from the non-uniformly sampled data. As shown with experiments, we accurately reconstruct the light transport matrix that can then be used to create relightable photographs. </p>
+    <a href="https://infoscience.epfl.ch/record/217420?ln=en"><b>Full Text</b></a>
+    <br>
+    <p>This site serves as a web based gallery for the relightable photographs acquired using our mobile setup. Click on an object to start relighting it.</p>
 
-		<section id="photos">
-			<div class="image">
-				<img id="toys" src="res/toys.png">
+    <section id="photos">
+      <div class="image">
+        <img id="toys" src="res/toys.png">
 
-				<h2><span>Scene with Toys</span></h2>
-			</div>
-
-			<div class="image">
-				<img id="nd1" src="res/nd1.png">
-
-				<h2><span>Oil painting of Notre Dame, Paris</span></h2>
-			</div>
-
-			<div class="image">
-				<img id="nd2" src="res/nd2.png">
-
-				<h2><span>A specular patch of oil painting</span></h2>
-			</div>
-
-			<div class="image">
-				<img id="iconograph" src="res/iconograph.png">
-
-				<h2><span>A glossy Iconograph</span></h2>
-			</div>
-
-			<div class="image">
-				<img id="hohmann" src="res/hohmann.png">
-
-				<h2><span>Oil painting by Hohmann</span></h2>
-			</div>
+        <h2><span>Scene with Toys</span></h2>
+      </div>
 
       <div class="image">
-				<img id="p1" src="res/p1.png">
-				<h2><span>Wheat Field with Cypresses</span></h2>
-			</div>
+        <img id="nd1" src="res/nd1.png">
+
+        <h2><span>Oil painting of Notre Dame, Paris</span></h2>
+      </div>
+
+      <div class="image">
+        <img id="nd2" src="res/nd2.png">
+
+        <h2><span>A specular patch of oil painting</span></h2>
+      </div>
+
+      <div class="image">
+        <img id="iconograph" src="res/iconograph.png">
+
+        <h2><span>A glossy Iconograph</span></h2>
+      </div>
+
+      <div class="image">
+        <img id="hohmann" src="res/hohmann.png">
+
+        <h2><span>Oil painting by Hohmann</span></h2>
+      </div>
+
+      <div class="image">
+        <img id="p1" src="res/p1.png">
+        <h2><span>Wheat Field with Cypresses</span></h2>
+      </div>
 
       <div class="image">
         <img id="p2" src="res/p2.png">
         <h2><span>Potrait of Cornelis van der Geest</span></h2>
       </div>
-		</section>
-	</div>
+    </section>
+  </div>
 
-	<div id="renderpage" style="display:none">
-		<div class="rendercontainer">
+  <div id="renderpage" style="display:none">
+    <div class="rendercontainer">
 
       <center>
-    		<img name="myImage" src="https://raw.githubusercontent.com/terrinoculon/toys/master/frame1275.jpg" height="50%"/>
-    		<br>
+        <img name="myImage" src="https://raw.githubusercontent.com/terrinoculon/toys/master/frame1275.jpg" height="50%"/>
+        <br>
 
         <br>
-    		<canvas height="250" id="imgCanvas" width="250"></canvas>
-    		<br>
+        <canvas height="250" id="imgCanvas" width="250"></canvas>
+        <br>
 
-    		<div class="myradio">
-    			<div>
-    				<input id="mode1" type="radio" name="mode" value="1" checked="checked" onclick="modeChange()">
-    				<label for="mode1"><span><span></span></span>Preloading Disabled</label>
-    			</div>
-    			<div>
-    				<input id="mode2" type="radio" name="mode" value="2" onclick="modeChange()">
-    				<label for="mode2"><span><span></span></span>Preloading along Trajectories</label>
-    			</div>
-    			<div>
-    				<input id="mode3" type="radio" name="mode" value="3" onclick="modeChange()">
-    				<label for="mode3"><span><span></span></span>Lazy Preloading</label>
-    			</div>
-    		</div>
-    		<br>
-    		<progress  id="progBar" value="0" max ="100" ></progress>
-    		<br>
-    		<div id="playButtons" >
-    			<div class="play_border" onclick="recordClicked()">
-    				<div class="circle"></div>
-    			</div>
-    			<div class="play_border" onclick="playClicked()">
-    				<div class="play_button"></div>
-    			</div>
+        <div class="myradio">
+          <div>
+            <input id="mode1" type="radio" name="mode" value="1" checked="checked" onclick="modeChange()">
+            <label for="mode1"><span><span></span></span>Preloading Disabled</label>
+          </div>
+          <div>
+            <input id="mode2" type="radio" name="mode" value="2" onclick="modeChange()">
+            <label for="mode2"><span><span></span></span>Preloading along Trajectories</label>
+          </div>
+          <div>
+            <input id="mode3" type="radio" name="mode" value="3" onclick="modeChange()">
+            <label for="mode3"><span><span></span></span>Lazy Preloading</label>
+          </div>
+        </div>
+        <br>
+        <progress  id="progBar" value="0" max ="100" ></progress>
+        <br>
+        <div id="playButtons" >
+          <div class="play_border" onclick="recordClicked()">
+            <div class="circle"></div>
+          </div>
+          <div class="play_border" onclick="playClicked()">
+            <div class="play_button"></div>
+          </div>
 
-    		</div>
+        </div>
 
-      <p id="mTips" ></p>
-<button class="buttoncl" id="ret">Back</button>
+        <p id="mTips" ></p>
+        <button class="buttoncl" id="ret">Back</button>
       </center>
 
 
 
-		</div>
-	</div>
+    </div>
+  </div>
 
   <script language="JavaScript" type="text/javascript">
 
@@ -313,174 +324,174 @@ p{
   document.getElementById("playButtons").style.display='none';
 
 
-var canvas = document.getElementById("imgCanvas");
-var posX;var posY;var currentFrame;
-var context = canvas.getContext('2d');
+  var canvas = document.getElementById("imgCanvas");
+  var posX;var posY;var currentFrame;
+  var context = canvas.getContext('2d');
 
-document.getElementById("ret").onclick = function() {
-	document.getElementById("renderpage").style.display = "none";
-	document.getElementById("joy").style.display = "";
-  document.getElementById('mode1').checked=true;
-  document.getElementById('mode2').checked=false;
-  document.getElementById('mode3').checked=false;
-  modeChange();
-};
+  document.getElementById("ret").onclick = function() {
+    document.getElementById("renderpage").style.display = "none";
+    document.getElementById("joy").style.display = "";
+    document.getElementById('mode1').checked=true;
+    document.getElementById('mode2').checked=false;
+    document.getElementById('mode3').checked=false;
+    modeChange();
+  };
 
-function setWorkspace( name,cwidth,cheight){
-  document.getElementById("joy").style.display = "none";
-	document.getElementById("renderpage").style.display = "";
-	canvas.width=cwidth;
-  canvas.height=cheight;
-  mc=cwidth/5;
-  mr=cheight/5;
-  context.fillStyle = "#BFBFBF";
-  context.fillRect(0, 0, canvas.width, canvas.height);
-  canvas.addEventListener('mousemove',getMousePos, false);
-  context.beginPath(); context.fillStyle = "#71A1F7";
-  context.arc(Math.floor(mc/2)*5, Math.floor(mr/2)*5, 10, 0, Math.PI * 2, true);
-  context.closePath();context.fill();
-  currentFrame=Math.floor((mr*Math.floor(mc/2)+Math.floor(mr/2))/3);
-  document.myImage.src=base.concat(currentFrame.toString(),".jpg");
-  document.getElementById("mTips").innerText=" In this mode, you can move the light to discrete points on the canvas. The scene will be relit once the cursor stops. ";
-};
-//TOYS
-document.getElementById("toys").onclick = function(){
-  var ch=250;
-  var cw=250;
-  base="https://raw.githubusercontent.com/terrinoculon/toys/master/frame";
-  setWorkspace(base,cw,ch);
-};
+  function setWorkspace( name,cwidth,cheight){
+    document.getElementById("joy").style.display = "none";
+    document.getElementById("renderpage").style.display = "";
+    canvas.width=cwidth;
+    canvas.height=cheight;
+    mc=cwidth/5;
+    mr=cheight/5;
+    context.fillStyle = "#BFBFBF";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    canvas.addEventListener('mousemove',getMousePos, false);
+    context.beginPath(); context.fillStyle = "#71A1F7";
+    context.arc(Math.floor(mc/2)*5, Math.floor(mr/2)*5, 10, 0, Math.PI * 2, true);
+    context.closePath();context.fill();
+    currentFrame=Math.floor((mr*Math.floor(mc/2)+Math.floor(mr/2))/3);
+    document.myImage.src=base.concat(currentFrame.toString(),".jpg");
+    document.getElementById("mTips").innerText=" In this mode, you can move the light to discrete points on the canvas. The scene will be relit once the cursor stops. ";
+  };
+  //TOYS
+  document.getElementById("toys").onclick = function(){
+    var ch=250;
+    var cw=250;
+    base="https://raw.githubusercontent.com/terrinoculon/toys/master/frame";
+    setWorkspace(base,cw,ch);
+  };
 
-//ND1
-document.getElementById("nd1").onclick = function() {
-  base="https://raw.githubusercontent.com/terrinoculon/nd1/master/frames";
-  var ch=160;
-  var cw=400;
-  setWorkspace(base,cw,ch);
-};
+  //ND1
+  document.getElementById("nd1").onclick = function() {
+    base="https://raw.githubusercontent.com/terrinoculon/nd1/master/frames";
+    var ch=160;
+    var cw=400;
+    setWorkspace(base,cw,ch);
+  };
 
-//ND2
-document.getElementById("nd2").onclick = function() {
-  base="https://raw.githubusercontent.com/terrinoculon/nd2/master/frames";
-  var ch=160;
-  var cw=400;
-  setWorkspace(base,cw,ch);
-};
-//ICON
-document.getElementById("iconograph").onclick = function() {
-  base="https://raw.githubusercontent.com/terrinoculon/icon/master/frames";
-  var ch=185;
-  var cw=295;
-  setWorkspace(base,cw,ch);
-};
+  //ND2
+  document.getElementById("nd2").onclick = function() {
+    base="https://raw.githubusercontent.com/terrinoculon/nd2/master/frames";
+    var ch=160;
+    var cw=400;
+    setWorkspace(base,cw,ch);
+  };
+  //ICON
+  document.getElementById("iconograph").onclick = function() {
+    base="https://raw.githubusercontent.com/terrinoculon/icon/master/frames";
+    var ch=185;
+    var cw=295;
+    setWorkspace(base,cw,ch);
+  };
 
-//HOHMANN
-document.getElementById("hohmann").onclick = function() {
-  base="https://raw.githubusercontent.com/terrinoculon/hohmann/master/frames";
-  var ch=285;
-  var cw=375;
-  setWorkspace(base,cw,ch);
-};
+  //HOHMANN
+  document.getElementById("hohmann").onclick = function() {
+    base="https://raw.githubusercontent.com/terrinoculon/hohmann/master/frames";
+    var ch=285;
+    var cw=375;
+    setWorkspace(base,cw,ch);
+  };
 
-//P1
-document.getElementById("p1").onclick = function() {
-  base="https://raw.githubusercontent.com/terrinoculon/p1/master/frames";
-  var ch=245;
-  var cw=375;
-  setWorkspace(base,cw,ch);
-};
+  //P1
+  document.getElementById("p1").onclick = function() {
+    base="https://raw.githubusercontent.com/terrinoculon/p1/master/frames";
+    var ch=245;
+    var cw=375;
+    setWorkspace(base,cw,ch);
+  };
 
-//P2
-document.getElementById("p2").onclick = function() {
-  base="https://raw.githubusercontent.com/terrinoculon/p2/master/frames";
-  var ch=325;
-  var cw=375;
-  setWorkspace(base,cw,ch);
-};
+  //P2
+  document.getElementById("p2").onclick = function() {
+    base="https://raw.githubusercontent.com/terrinoculon/p2/master/frames";
+    var ch=325;
+    var cw=375;
+    setWorkspace(base,cw,ch);
+  };
 
 
-function getMousePos( evt) {
-  var rect = canvas.getBoundingClientRect();
-  posX= (evt.clientX-rect.left)/(rect.right-rect.left)*canvas.width;
-  posY= (evt.clientY-rect.top)/(rect.bottom-rect.top)*canvas.height;
-  posx = Math.ceil((posX+1)/5);
-  posy = Math.ceil((posY+1)/5);
-  drawCanvas();
-}
-
-function drawCanvas(){
-  if (mode==1)
-  {
-    draw();
-  }
-  else if (mode==2) {
-    drawWithTrajectory();
-  }
-  else if (mode==3) {
-    draw();
-  }
-}
-
-function draw(){
-  context.fillStyle = "#BFBFBF";
-  context.fillRect(0, 0, canvas.width, canvas.height);
-  context.beginPath();
-  context.fillStyle = "#71A1F7";
-  context.arc(posX, posY, 10, 0, Math.PI * 2, true);
-  context.closePath();context.fill();
-  currentFrame= (posy + mr * (posx - 1)) ;
-  document.myImage.src=base.concat(currentFrame.toString(),".jpg");console.log(currentFrame);
-}
-
-function drawWithTrajectory(){
-  if (record==false && play==false)
-  {
-    draw();
-  }
-  if (record==true)
-  {
-    recordTrajectory();
-  }
-}
-
-function recordTrajectory(){
-  context.beginPath();
-  context.fillStyle = "#71A1F7";
-  context.arc(posX, posY, 10, 0, Math.PI * 2, true);
-  context.closePath();context.fill();
-  currentFrame= (posy + mr * (posx - 1)) ;
-  traj.push(currentFrame);
-  pX.push(posX);
-  pY.push(posY);
-}
-
-function loadTrajectory(){
-  document.getElementById("playButtons").style.display='none';
-  document.getElementById("progBar").style.display='block';
-  for (var i=0;i<traj.length;i++)
-  {
-    var tmp=traj[i];
-    var img= new Image();
-    img.src=base.concat(tmp.toString(),".jpg");
-    document.getElementById("progBar").value = (i+1)/traj.length*100;
+  function getMousePos( evt) {
+    var rect = canvas.getBoundingClientRect();
+    posX= (evt.clientX-rect.left)/(rect.right-rect.left)*canvas.width;
+    posY= (evt.clientY-rect.top)/(rect.bottom-rect.top)*canvas.height;
+    posx = Math.ceil((posX+1)/5);
+    posy = Math.ceil((posY+1)/5);
+    drawCanvas();
   }
 
-}
+  function drawCanvas(){
+    if (mode==1)
+    {
+      draw();
+    }
+    else if (mode==2) {
+      drawWithTrajectory();
+    }
+    else if (mode==3) {
+      draw();
+    }
+  }
+
+  function draw(){
+    context.fillStyle = "#BFBFBF";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.beginPath();
+    context.fillStyle = "#71A1F7";
+    context.arc(posX, posY, 10, 0, Math.PI * 2, true);
+    context.closePath();context.fill();
+    currentFrame= (posy + mr * (posx - 1)) ;
+    document.myImage.src=base.concat(currentFrame.toString(),".jpg");console.log(currentFrame);
+  }
+
+  function drawWithTrajectory(){
+    if (record==false && play==false)
+    {
+      draw();
+    }
+    if (record==true)
+    {
+      recordTrajectory();
+    }
+  }
+
+  function recordTrajectory(){
+    context.beginPath();
+    context.fillStyle = "#71A1F7";
+    context.arc(posX, posY, 10, 0, Math.PI * 2, true);
+    context.closePath();context.fill();
+    currentFrame= (posy + mr * (posx - 1)) ;
+    traj.push(currentFrame);
+    pX.push(posX);
+    pY.push(posY);
+  }
+
+  function loadTrajectory(){
+    document.getElementById("playButtons").style.display='none';
+    document.getElementById("progBar").style.display='block';
+    for (var i=0;i<traj.length;i++)
+    {
+      var tmp=traj[i];
+      var img= new Image();
+      img.src=base.concat(tmp.toString(),".jpg");
+      document.getElementById("progBar").value = (i+1)/traj.length*100;
+    }
+
+  }
 
   function keyDown(e) {
-       if (e.keyCode == 13 && mode==2) {
-            record=true;
-            traj=[];
-            pX=[];
-            pY=[];context.fillStyle = "#BFBFBF";
-            context.fillRect(0, 0, canvas.width, canvas.height);
-       }if (e.keyCode == 32 && mode==2) {
-            record=false;
-            loadTrajectory();
-            document.getElementById("playButtons").style.display='block';
-            document.getElementById("progBar").style.display='none';
+    if (e.keyCode == 13 && mode==2) {
+      record=true;
+      traj=[];
+      pX=[];
+      pY=[];context.fillStyle = "#BFBFBF";
+      context.fillRect(0, 0, canvas.width, canvas.height);
+    }if (e.keyCode == 32 && mode==2) {
+      record=false;
+      loadTrajectory();
+      document.getElementById("playButtons").style.display='block';
+      document.getElementById("progBar").style.display='none';
 
-       }
+    }
   }
 
   function playClicked(){
@@ -501,65 +512,65 @@ function loadTrajectory(){
           clearInterval();
         }
       },50);
-  }
+    }
 
-  function recordClicked(){
-    record=true;
-    traj=[];
-    pX=[];
-    pY=[];context.fillStyle = "#BFBFBF";
-    context.fillRect(0, 0, canvas.width, canvas.height);
-  }
+    function recordClicked(){
+      record=true;
+      traj=[];
+      pX=[];
+      pY=[];context.fillStyle = "#BFBFBF";
+      context.fillRect(0, 0, canvas.width, canvas.height);
+    }
 
-  function playDraw(){
-    context.beginPath();
-    context.fillStyle = "#71A1F7";
-    context.arc(posX, posY, 10, 0, Math.PI * 2, true);
-    context.closePath();context.fill();
-    document.myImage.src=base.concat(currentFrame.toString(),".jpg");console.log(currentFrame);
-  }
+    function playDraw(){
+      context.beginPath();
+      context.fillStyle = "#71A1F7";
+      context.arc(posX, posY, 10, 0, Math.PI * 2, true);
+      context.closePath();context.fill();
+      document.myImage.src=base.concat(currentFrame.toString(),".jpg");console.log(currentFrame);
+    }
 
 
-  function modeChange(){
-    if (typeof myWorker !== 'undefined') {
+    function modeChange(){
+      if (typeof myWorker !== 'undefined') {
         myWorker.terminate();
-    }
-    console.log((typeof myWorker ));
-    if (document.getElementById('mode1').checked) {
-      mode = document.getElementById('mode1').value;
-      document.getElementById("progBar").style.display='none';
-      document.getElementById("playButtons").style.display='none';
-      document.getElementById("mTips").innerText=" In this mode, you can move the light to discrete points on the canvas. The scene will be relit once the cursor stops. ";
-    }
-    if (document.getElementById('mode2').checked) {
-      mode = document.getElementById('mode2').value;
-      document.getElementById("progBar").style.display='none';
-      document.getElementById("playButtons").style.display='block';
-      record=false;
-      play=false;
-      document.getElementById("mTips").innerText=" In this mode, you can draw a trajectory on the canvas with the cursor. The scene will be animated with a light source moving along the trajectory. To start recording the trajectory, press the 'Enter' key or the 'record' button above. After drawing a trajectory, to stop recording the trajectory, press the 'Space Bar'. You can play the anmation by the clicking the 'play' button above. Draw a new trajectory by pressing the 'Enter' key again, and repeating as above.";
-    }
-    if (document.getElementById('mode3').checked) {
-      mode = document.getElementById('mode3').value;
-      document.getElementById("progBar").style.display='block';
-      document.getElementById("playButtons").style.display='none';
-      document.getElementById("mTips").innerText=" In this mode, we first cache the entire dataset in your browser. The progress bar above indicates the percentage of data cached. Once cached you can move the cursor along any trajectory and relighting will happen in real time. Thus, this method has the best user experience ideally. However, implicit restrictions on the cache size by browsers would mean this method fails if we run out of cache space.";
-      if (window.Worker) {
-        myWorker = new Worker("js/lazyload.js");
-        console.log('Created Worker');
-        myWorker.postMessage([base,mr*mc]);
-        myWorker.onmessage = function(e) {
-          document.getElementById("progBar").value = e.data;
-          console.log('Message received from worker');
-        };}
-        else{
-          document.getElementById("mTips").innerText=" This mode is unavailable. Workers disabled.";
-          console.log('No Workers');
-        }
-
       }
-    }
+      console.log((typeof myWorker ));
+      if (document.getElementById('mode1').checked) {
+        mode = document.getElementById('mode1').value;
+        document.getElementById("progBar").style.display='none';
+        document.getElementById("playButtons").style.display='none';
+        document.getElementById("mTips").innerText=" In this mode, you can move the light to discrete points on the canvas. The scene will be relit once the cursor stops. ";
+      }
+      if (document.getElementById('mode2').checked) {
+        mode = document.getElementById('mode2').value;
+        document.getElementById("progBar").style.display='none';
+        document.getElementById("playButtons").style.display='block';
+        record=false;
+        play=false;
+        document.getElementById("mTips").innerText=" In this mode, you can draw a trajectory on the canvas with the cursor. The scene will be animated with a light source moving along the trajectory. To start recording the trajectory, press the 'Enter' key or the 'record' button above. After drawing a trajectory, to stop recording the trajectory, press the 'Space Bar'. You can play the anmation by the clicking the 'play' button above. Draw a new trajectory by pressing the 'Enter' key again, and repeating as above.";
+      }
+      if (document.getElementById('mode3').checked) {
+        mode = document.getElementById('mode3').value;
+        document.getElementById("progBar").style.display='block';
+        document.getElementById("playButtons").style.display='none';
+        document.getElementById("mTips").innerText=" In this mode, we first cache the entire dataset in your browser. The progress bar above indicates the percentage of data cached. Once cached you can move the cursor along any trajectory and relighting will happen in real time. Thus, this method has the best user experience ideally. However, implicit restrictions on the cache size by browsers would mean this method fails if we run out of cache space.";
+        if (window.Worker) {
+          myWorker = new Worker("js/lazyload.js");
+          console.log('Created Worker');
+          myWorker.postMessage([base,mr*mc]);
+          myWorker.onmessage = function(e) {
+            document.getElementById("progBar").value = e.data;
+            console.log('Message received from worker');
+          };}
+          else{
+            document.getElementById("mTips").innerText=" This mode is unavailable. Workers disabled.";
+            console.log('No Workers');
+          }
 
-	</script>
-</body>
-</html>
+        }
+      }
+
+      </script>
+    </body>
+    </html>
