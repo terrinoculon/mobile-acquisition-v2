@@ -84,6 +84,8 @@ p{
   font-weight:bold;
 }
 .buttoncl {
+  margin: 30px auto;
+  padding: 0;
   background:#ca3c3c;
   border-width: 0;
   outline: none;
@@ -94,59 +96,73 @@ p{
   color: #eee;  
   transition: background-color .3s;
 }
-.myradio{
-  text-align : left;
-  margin-left:40%;
-}
-.myradio input[type=radio   ]:not(old){
-  width     : 2em;
-  margin    : 0;
-  padding   : 0;
-  font-size : 1em;
-  opacity   : 0;
-}
-.myradio input[type=radio   ]:not(old) + label{
-  display      : inline-block;
-  margin-left  : -2em;
-  line-height  : 1.5em;
-}
+$border-color: rgba(0, 0, 0 , .54);
+$accent-color: #2ecc71;
+.myradio {
+    display: inline-block;
+    position: relative;
+    margin: 0 0 10px;
+    font-size: 16px;
+    line-height: 24px;
+    
+    &__input {
+        position: absolute;
+        top: 4px;
+        left: 0;
+        width: 36px;
+        height: 20px;
+        opacity: 0;
+        z-index: 0;
+    }
+    
+    // Unchecked
+    &__label {
+        display: block;
+        padding: 0 0 0 24px;
+        cursor: pointer;
+        
+        &:before {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 0;
+            width: 16px;
+            height: 16px;
+            background-color: transparent;
+            border: 2px solid $border-color;
+            border-radius: 14px;
+            z-index: 1;
+            transition: border-color 0.28s cubic-bezier(.4, 0, .2, 1);
+        }
+         
+        &:after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 4px;
+            width: 8px;
+            height: 8px;
+            background-color: $accent-color;
+            border-radius: 50%;
+            z-index: 2;
+            transform: scale(0, 0);
+            transition: transform 0.28s cubic-bezier(.4, 0, .2, 1);
+        }
+    }
+    
+    // Checked
+    &__input:checked + &__label {
+        &:before {
+            border-color: $accent-color;
+        }
+        
+        &:after {
+            transform: scale(1, 1);
+        }
+    }
+  }
+    
 
-.myradio input[type=radio   ]:not(old) + label > span{
-  display          : inline-block;
-  width            : 0.875em;
-  height           : 0.875em;
-  margin           : 0.25em 0.5em 0.25em 0.25em;
-  border           : 0.0625em solid #222222;
-  border-radius    : 0.25em;
-  background       : #111111;
-  background-image :    -moz-linear-gradient(#222222,#111111);
-  background-image :     -ms-linear-gradient(#222222,#111111);
-  background-image :      -o-linear-gradient(#222222,#111111);
-  background-image : -webkit-linear-gradient(#222222,#111111);
-  background-image :         linear-gradient(#222222,#111111);
-  vertical-align   : bottom;
-}
-.myradio input[type=radio   ]:not(old):checked + label > span{
-  background-image :    -moz-linear-gradient(#111111,#222222);
-  background-image :     -ms-linear-gradient(#111111,#222222);
-  background-image :      -o-linear-gradient(#111111,#222222);
-  background-image : -webkit-linear-gradient(#111111,#222222);
-  background-image :         linear-gradient(#111111,#222222);
-}
-.myradio input[type=radio]:not(old):checked +  label > span > span{
-  display          : block;
-  width            : 0.5em;
-  height           : 0.5em;
-  margin           : 0.125em;
-  border           : 0.0625em solid rgb(115,153,77);
-  border-radius    : 0.125em;
-  background       : #71A1F7;
-  background-image :    -moz-linear-gradient(#71A1F7,#71A1F7);
-  background-image :     -ms-linear-gradient(#71A1F7,#71A1F7);
-  background-image :      -o-linear-gradient(#71A1F7,#71A1F7);
-  background-image : -webkit-linear-gradient(#71A1F7,#71A1F7);
-  background-image :         linear-gradient(#71A1F7,#71A1F7);
-}
 .play_border {
   margin:5px;
   border: 2px solid rgba(0,0,0,0.7);
